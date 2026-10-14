@@ -1,8 +1,8 @@
 # make            clean, test, build and verify the plugin ZIP
 # make run        launch a sandboxed IntelliJ IDEA (2026.2) with the plugin preinstalled (ARGS=... go to Gradle)
 # make install    build and install into local IntelliJ IDEA and Android Studio (IDE=idea or IDE=studio for one)
-# make release    bump the patch version, then build and publish it to GitHub Releases
-# make publish    build and publish the current version (e.g. to retry a failed release)
+# make release    build and publish the version in gradle.properties to GitHub Releases, replacing an
+#                 existing release of that version (change the version with ./set-version.sh)
 #
 # GitHub Releases doubles as the custom plugin repository: each release carries the ZIP plus an
 # updatePlugins.xml pointing at it, and IDEs add .../releases/latest/download/updatePlugins.xml.
@@ -19,7 +19,7 @@ PLUGIN_ID = $(shell sed -nE 's|.*<id>(.*)</id>.*|\1|p' $(PLUGIN_XML))
 SINCE_BUILD = $(shell sed -nE 's/.*sinceBuild = "([^"]+)".*/\1/p' build.gradle.kts)
 IDE ?= all
 
-.PHONY: bundle run install bump release publish
+.PHONY: bundle run install release
 
 # The Plugin Verifier checks binary compatibility against locally installed IDEs only,
 # which avoids its slow IDE downloads; it is skipped when none is installed.
@@ -61,16 +61,9 @@ install:
 	if [[ $(IDE) != studio ]]; then install_into "IntelliJ IDEA" "$$HOME/Library/Application Support/JetBrains/"{IntelliJIdea,IdeaIC}*/plugins; fi; \
 	if [[ $(IDE) != idea ]]; then install_into "Android Studio" "$$HOME/Library/Application Support/Google/"AndroidStudio*/plugins; fi
 
-bump:
-	@v=$(VERSION); ./set-version.sh $${v%.*}.$$(($${v##*.} + 1))
-
-# A sub-make, so the bumped version is re-read from gradle.properties.
-release: bump
-	@$(MAKE) --no-print-directory publish
-
 # Name, vendor and description are copied verbatim from plugin.xml so the IDE's plugin page matches it.
 # The tag is created at local HEAD, which must already be pushed.
-publish: bundle
+release: bundle
 	@{ \
 	  echo '<plugins>'; \
 	  echo '  <plugin id="$(PLUGIN_ID)" version="$(VERSION)"'; \
