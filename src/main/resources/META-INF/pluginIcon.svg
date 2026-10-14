@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="-128 -128 1280 1280">
-  <!-- Vector redraw of Icon-iOS-Dark-1024@1x.png in its 1024px coordinates; the viewBox leaves 4px padding. -->
+  <!-- Vector redraw of art/plugin-icon-1024.png in its 1024px coordinates; the viewBox leaves 4px padding. -->
   <defs>
     <path id="tile" d="M404 0H620C737 0 795 0 857 20C926 45 979 98 1004 167C1024 229 1024 287 1024 404V620C1024 737 1024 795 1004 857C979 926 926 979 857 1004C795 1024 737 1024 620 1024H404C287 1024 229 1024 167 1004C98 979 45 926 20 857C0 795 0 737 0 620V404C0 287 0 229 20 167C45 98 98 45 167 20C229 0 287 0 404 0z"/>
     <linearGradient id="rim" x1="0" y1="0" x2="0" y2="1024" gradientUnits="userSpaceOnUse">

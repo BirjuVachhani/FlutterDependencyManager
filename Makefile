@@ -62,9 +62,7 @@ install:
 	if [[ $(IDE) != idea ]]; then install_into "Android Studio" "$$HOME/Library/Application Support/Google/"AndroidStudio*/plugins; fi
 
 bump:
-	@v=$(VERSION); next=$${v%.*}.$$(($${v##*.} + 1)); \
-	sed -i '' -E "s/^version[[:space:]]*=.*/version = $$next/" gradle.properties; \
-	echo "Version $$v -> $$next"
+	@v=$(VERSION); ./set-version.sh $${v%.*}.$$(($${v##*.} + 1))
 
 # A sub-make, so the bumped version is re-read from gradle.properties.
 release: bump
