@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="-128 -128 1280 1280">
+  <!-- Vector redraw of Icon-iOS-Dark-1024@1x.png in its 1024px coordinates; the viewBox leaves 4px padding. -->
+  <defs>
+    <path id="tile" d="M404 0H620C737 0 795 0 857 20C926 45 979 98 1004 167C1024 229 1024 287 1024 404V620C1024 737 1024 795 1004 857C979 926 926 979 857 1004C795 1024 737 1024 620 1024H404C287 1024 229 1024 167 1004C98 979 45 926 20 857C0 795 0 737 0 620V404C0 287 0 229 20 167C45 98 98 45 167 20C229 0 287 0 404 0z"/>
+    <linearGradient id="rim" x1="0" y1="0" x2="0" y2="1024" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#9A9A9B"/>
+      <stop offset=".12" stop-color="#2A2A2B"/>
+      <stop offset=".88" stop-color="#151516"/>
+      <stop offset="1" stop-color="#5A5A5B"/>
+    </linearGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1024" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#202021"/>
+      <stop offset="1" stop-color="#121213"/>
+    </linearGradient>
+    <linearGradient id="left" x1="0" y1="316" x2="0" y2="904" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#DAA877"/>
+      <stop offset="1" stop-color="#B08A62"/>
+    </linearGradient>
+    <linearGradient id="right" x1="0" y1="316" x2="0" y2="904" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#EBD2AB"/>
+      <stop offset="1" stop-color="#BFAA8A"/>
+    </linearGradient>
+  </defs>
+  <use xlink:href="#tile" fill="url(#rim)"/>
+  <use xlink:href="#tile" fill="url(#bg)" transform="translate(8 8) scale(.984375)"/>
+  <path fill="#B8895E" d="M512 120 855 316 512 512 168 316z"/>
+  <path fill="url(#left)" d="M168 316 512 512v392L168 708z"/>
+  <path fill="url(#right)" d="M512 512 855 316v392L512 904z"/>
+  <path fill="#CECED2" d="M292 246 393 188 736 384 636 442z"/>
+  <path fill="#DFE1E3" d="M636 442 736 384v154l-100 58z"/>
+  <path fill="none" stroke="#E2E3E5" stroke-width="24" stroke-linecap="round" d="M232 437 377 521M232 508 300 546"/>
+  <!-- Rounds the box's outer corners by painting the background back over them. -->
+  <path fill="url(#bg)" d="M491 132 512 120 533 132Q512 120 491 132zM834 304 855 316 855 340Q855 316 834 304zM855 684 855 708 834 720Q855 708 855 684zM533 892 512 904 491 892Q512 904 533 892zM189 720 168 708 168 684Q168 708 189 720zM168 340 168 316 189 304Q168 316 168 340z"/>
+</svg>

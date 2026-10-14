@@ -1,0 +1,46 @@
+<!-- https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <id>dev.birju.flutterDependencyManager</id>
+    <name>Flutter Dependency Manager</name>
+    <vendor>Birju Vachhani</vendor>
+    <description><![CDATA[
+        Manage flutter dependencies effortlessly.
+        <ul>
+            <li>Highlights outdated packages in pubspec.yaml (dependencies, dev_dependencies, dependency_overrides),
+                including packages on private <code>hosted:</code> repositories using tokens from <code>dart pub token add</code></li>
+            <li>Separate underline colors for major, minor and patch updates, customizable in
+                Settings | Editor | Color Scheme | Flutter Dependencies</li>
+            <li>Quick fixes to upgrade one package (optionally running pub get) or all packages</li>
+            <li>Package changelog on hover over the version, and in a side panel on Cmd/Ctrl+Click</li>
+            <li>Cmd/Ctrl+Click a package name to open its pub.dev, hosted or git page</li>
+        </ul>
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.plugins.yaml</depends>
+    <depends optional="true" config-file="with-jcef.xml">com.intellij.modules.jcef</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <notificationGroup id="Flutter Dependency Manager" displayType="BALLOON"/>
+        <externalAnnotator language="yaml"
+                           implementationClass="dev.birju.flutterdependencymanager.PubspecUpdateAnnotator"/>
+        <colorSettingsPage implementation="dev.birju.flutterdependencymanager.UpdateColorSettingsPage"/>
+        <!-- Every bundled scheme descends from one of these two (Light from Default; Dark and Islands Dark from Darcula). -->
+        <additionalTextAttributes scheme="Default" file="colorSchemes/FlutterDependenciesDefault.xml"/>
+        <additionalTextAttributes scheme="Darcula" file="colorSchemes/FlutterDependenciesDarcula.xml"/>
+        <lang.documentationProvider language="yaml"
+                                    implementationClass="dev.birju.flutterdependencymanager.ChangelogDocumentationProvider"
+                                    order="first"/>
+        <psi.referenceContributor language="yaml"
+                                  implementation="dev.birju.flutterdependencymanager.PubspecLinkContributor"/>
+        <intentionAction>
+            <language>yaml</language>
+            <className>dev.birju.flutterdependencymanager.ViewPackageIntention</className>
+            <category>Flutter</category>
+            <skipBeforeAfter>true</skipBeforeAfter>
+        </intentionAction>
+        <toolWindow id="Flutter Changelog" anchor="right" icon="AllIcons.Toolwindows.Documentation"
+                    canCloseContents="false"
+                    factoryClass="dev.birju.flutterdependencymanager.ChangelogToolWindowFactory"/>
+    </extensions>
+</idea-plugin>

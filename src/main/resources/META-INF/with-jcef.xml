@@ -1,0 +1,2 @@
+<!-- Loaded only when the JCEF plugin is present; declares the dependency so BuiltInBrowser can use JBCefApp. -->
+<idea-plugin/>

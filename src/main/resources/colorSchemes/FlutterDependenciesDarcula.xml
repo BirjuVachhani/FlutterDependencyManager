@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list>
+  <option name="FLUTTER_DEPENDENCY_MAJOR_UPDATE">
+    <value>
+      <option name="EFFECT_COLOR" value="EE7A45"/>
+      <option name="EFFECT_TYPE" value="2"/>
+      <option name="ERROR_STRIPE_COLOR" value="EE7A45"/>
+    </value>
+  </option>
+  <option name="FLUTTER_DEPENDENCY_MINOR_UPDATE">
+    <value>
+      <option name="EFFECT_COLOR" value="E6A817"/>
+      <option name="EFFECT_TYPE" value="2"/>
+      <option name="ERROR_STRIPE_COLOR" value="E6A817"/>
+    </value>
+  </option>
+  <option name="FLUTTER_DEPENDENCY_PATCH_UPDATE">
+    <value>
+      <option name="EFFECT_COLOR" value="33B58A"/>
+      <option name="EFFECT_TYPE" value="2"/>
+      <option name="ERROR_STRIPE_COLOR" value="33B58A"/>
+    </value>
+  </option>
+</list>
